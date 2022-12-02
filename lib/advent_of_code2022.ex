@@ -1,34 +1,10 @@
 defmodule AdventOfCode2022 do
-  @moduledoc """
-  Documentation for `AdventOfCode2022`.
-  """
+  alias AdventOfCode2022.Calories
 
-  def day_01_part_01 do
-    get_sorted_elves_calories()
-    |> List.first()
-  end
-
-  def day_01_part_02 do
-    get_sorted_elves_calories()
-    |> Enum.take(3)
-    |> Enum.sum()
-  end
-
-  defp get_sorted_elves_calories() do
-    "lib/files/elves_calories.txt"
-    |> File.read!()
-    |> String.split("\n\n")
-    |> Enum.map(fn calories_str_list ->
-      calories_str_list
-      |> String.split("\n")
-      |> Enum.reduce(0, fn calories_str, total_calories ->
-        case Integer.parse(calories_str) do
-          {calories_val, ""} -> calories_val + total_calories
-          _ -> total_calories
-        end
-      end)
-    end)
-    |> Enum.sort()
-    |> Enum.reverse()
+  def day_01 do
+    %{
+      part_01: Calories.get_top_elf_calories("lib/files/day_01/elves_calories.txt", 1),
+      part_02: Calories.get_top_elf_calories("lib/files/day_01/elves_calories.txt", 3)
+    }
   end
 end
