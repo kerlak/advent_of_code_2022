@@ -27,11 +27,9 @@ defmodule AdventOfCode2022.Rucksacks do
 
   defp get_group_priority(group) do
     [rucksack_a, rucksack_b, rucksack_c] = Enum.map(group, &to_charlist(&1))
-    common_ab = rucksack_a -- rucksack_a -- rucksack_b
-    common_bc = rucksack_b -- rucksack_b -- rucksack_c
-    common_item = common_ab -- common_ab -- common_bc
-
-    common_item
+    rucksack_a
+    |> get_common_items(rucksack_b)
+    |> get_common_items(rucksack_c)
     |> Enum.uniq()
     |> List.first()
     |> get_value()
@@ -48,10 +46,14 @@ defmodule AdventOfCode2022.Rucksacks do
     compartments
     |> then(fn {compartment_a, compartment_b} ->
       {a, b} = {to_charlist(compartment_a), to_charlist(compartment_b)}
-      a -- a -- b
+      get_common_items(a, b)
     end)
     |> Enum.uniq()
     |> List.first()
+  end
+
+  defp get_common_items(a, b) when is_list(a) and is_list(b) do
+    a -- (a -- b)
   end
 
   defp get_value(char) when is_integer(char) and char <= 91, do: char - 64 + 26
