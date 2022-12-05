@@ -1,6 +1,7 @@
 defmodule AdventOfCode2022 do
+  alias AdventOfCode2022.SupplyStacks
   alias AdventOfCode2022.Cleanup
-  alias AdventOfCode2022.{Calories, RockPaperScissors, Rucksacks}
+  alias AdventOfCode2022.{Calories, RockPaperScissors, Rucksacks, SupplyStacks}
 
   def day_01 do
     %{
@@ -28,6 +29,13 @@ defmodule AdventOfCode2022 do
     %{
       part_01: Cleanup.get_fully_recleanings("lib/files/day_04/cleanup_pairs.txt"),
       part_02: Cleanup.get_overlap_recleanings("lib/files/day_04/cleanup_pairs.txt")
+    }
+  end
+
+  def day_05 do
+    %{
+      part_01: SupplyStacks.last_crane("lib/files/day_05/stack.txt"),
+      part_02: SupplyStacks.last_crane_with_9001("lib/files/day_05/stack.txt")
     }
   end
 end
