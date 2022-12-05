@@ -26,9 +26,10 @@ defmodule AdventOfCode2022.Cleanup do
   end
 
   defp get_sections(range) do
-    [from, to] = range
-    |> String.split("-")
-    |> Enum.map(&parse_int!(&1))
+    [from, to] =
+      range
+      |> String.split("-")
+      |> Enum.map(&parse_int!(&1))
 
     Enum.to_list(from..to)
   end

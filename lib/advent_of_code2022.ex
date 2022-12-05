@@ -27,7 +27,7 @@ defmodule AdventOfCode2022 do
   def day_04 do
     %{
       part_01: Cleanup.get_fully_recleanings("lib/files/day_04/cleanup_pairs.txt"),
-      part_02: Cleanup.get_overlap_recleanings("lib/files/day_04/cleanup_pairs.txt"),
+      part_02: Cleanup.get_overlap_recleanings("lib/files/day_04/cleanup_pairs.txt")
     }
   end
 end
