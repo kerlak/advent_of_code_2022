@@ -8,6 +8,7 @@ defmodule AdventOfCode2022Test do
   @day3 %{part_01: 8176, part_02: 2689}
   @day4 %{part_01: 584, part_02: 933}
   @day5 %{part_01: "SBPQRSCDF", part_02: "RGLVRCQSB"}
+  @day6 %{part_01: 1210, part_02: 3476}
 
   test "match_snapshots" do
     assert @day1 == AdventOfCode2022.day_01()
@@ -15,5 +16,6 @@ defmodule AdventOfCode2022Test do
     assert @day3 == AdventOfCode2022.day_03()
     assert @day4 == AdventOfCode2022.day_04()
     assert @day5 == AdventOfCode2022.day_05()
+    assert @day6 == AdventOfCode2022.day_06()
   end
 end

@@ -1,7 +1,7 @@
 defmodule AdventOfCode2022 do
   alias AdventOfCode2022.SupplyStacks
   alias AdventOfCode2022.Cleanup
-  alias AdventOfCode2022.{Calories, RockPaperScissors, Rucksacks, SupplyStacks}
+  alias AdventOfCode2022.{Calories, RockPaperScissors, Rucksacks, SupplyStacks, Walkie}
 
   def day_01 do
     %{
@@ -36,6 +36,15 @@ defmodule AdventOfCode2022 do
     %{
       part_01: SupplyStacks.last_crane("lib/files/day_05/stack.txt"),
       part_02: SupplyStacks.last_crane_with_9001("lib/files/day_05/stack.txt")
+    }
+  end
+
+  def day_06 do
+    signal = File.read!("lib/files/day_06/signal.txt")
+
+    %{
+      part_01: Walkie.get_marker_position(signal),
+      part_02: Walkie.get_message_position(signal)
     }
   end
 end

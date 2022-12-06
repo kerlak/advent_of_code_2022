@@ -7,18 +7,18 @@ defmodule AdventOfCode2022.SupplyStacksTest do
 
   test "get stack from string" do
     assert @stack_str
-    |> SupplyStacks.get_stack()
-    == [
-      ["N", "Z"],
-      ["D", "C", "M"],
-      ["P"]
-    ]
+           |> SupplyStacks.get_stack() ==
+             [
+               ["N", "Z"],
+               ["D", "C", "M"],
+               ["P"]
+             ]
   end
 
   test "test transpose" do
-    assert [[1,2,3,4], [5,6,7,8], [9,10,11,12]]
-    |> SupplyStacks.transpose_matrix()
-    == [[1,5,9],[2,6,10],[3,7,11],[4,8,12]]
+    assert [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+           |> SupplyStacks.transpose_matrix() ==
+             [[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
   end
 
   test "get last crane" do
