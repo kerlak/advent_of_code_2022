@@ -1,4 +1,6 @@
 defmodule AdventOfCode2022.SupplyStacks do
+  @moduledoc false
+
   def last_crane(stack_file_path) do
     [str_stack, str_movements] =
       stack_file_path

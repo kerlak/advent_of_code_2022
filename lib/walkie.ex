@@ -1,4 +1,6 @@
 defmodule AdventOfCode2022.Walkie do
+  @moduledoc false
+
   @marker_size 4
   @message_size 14
 

@@ -1,4 +1,6 @@
 defmodule AdventOfCode2022.Cleanup do
+  @moduledoc false
+
   def get_fully_recleanings(cleanup_pairs_file_path) do
     cleanup_pairs_file_path
     |> File.read!()

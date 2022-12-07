@@ -1,4 +1,6 @@
 defmodule AdventOfCode2022.Calories do
+  @moduledoc false
+
   defp get_sorted_elves_calories(calories_file_path) do
     calories_file_path
     |> File.read!()

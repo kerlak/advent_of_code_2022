@@ -1,4 +1,6 @@
 defmodule AdventOfCode2022.Rucksacks do
+  @moduledoc false
+
   def get_total_priority(rucksacks_file_path) do
     rucksacks_file_path
     |> File.read!()

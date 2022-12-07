@@ -1,7 +1,6 @@
 defmodule AdventOfCode2022.SupplyStacksTest do
   use ExUnit.Case
   alias AdventOfCode2022.SupplyStacks
-  doctest SupplyStacks
 
   @stack_str "    [D]    \n[N] [C]    \n[Z] [M] [P]\n 1   2   3 "
 

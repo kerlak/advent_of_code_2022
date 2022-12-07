@@ -1,7 +1,6 @@
 defmodule AdventOfCode2022.WalkieTest do
   use ExUnit.Case
   alias AdventOfCode2022.Walkie
-  doctest Walkie
 
   test "get marker position from signal" do
     assert Walkie.get_marker_position("mjqjpqmgbljsphdztnvjfqwrcgsmlb") == 7

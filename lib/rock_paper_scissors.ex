@@ -1,4 +1,6 @@
 defmodule AdventOfCode2022.RockPaperScissors do
+  @moduledoc false
+
   @win_points 6
   @draw_points 3
   @lose_points 0

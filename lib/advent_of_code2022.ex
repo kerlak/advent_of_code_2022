@@ -1,7 +1,15 @@
 defmodule AdventOfCode2022 do
-  alias AdventOfCode2022.SupplyStacks
-  alias AdventOfCode2022.Cleanup
-  alias AdventOfCode2022.{Calories, RockPaperScissors, Rucksacks, SupplyStacks, Walkie}
+  alias AdventOfCode2022.{
+    Calories,
+    Cleanup,
+    RockPaperScissors,
+    Rucksacks,
+    Shell,
+    SupplyStacks,
+    Walkie
+  }
+
+  @moduledoc false
 
   def day_01 do
     %{
@@ -45,6 +53,15 @@ defmodule AdventOfCode2022 do
     %{
       part_01: Walkie.get_marker_position(signal),
       part_02: Walkie.get_message_position(signal)
+    }
+  end
+
+  def day_07 do
+    commands = File.read!("lib/files/day_07/commands.txt")
+
+    %{
+      part_01: Shell.get_folders_size(commands, 100_000),
+      part_02: Shell.get_size_to_remove_to_get(commands, 30_000_000)
     }
   end
 end
