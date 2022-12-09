@@ -4,10 +4,11 @@ defmodule AdventOfCode2022 do
     Cleanup,
     Forest,
     RockPaperScissors,
+    Rope,
     Rucksacks,
     Shell,
     SupplyStacks,
-    Walkie
+    Walkie,
   }
 
   @moduledoc false
@@ -72,6 +73,15 @@ defmodule AdventOfCode2022 do
     %{
       part_01: Forest.count_visible_trees(scan),
       part_02: Forest.best_scenic_score(scan)
+    }
+  end
+
+  def day_09 do
+    movements = File.read!("lib/files/day_09/rope_movements.txt")
+
+    %{
+      part_01: Rope.count_tail_visited_positions(movements, 1),
+      part_02: Rope.count_tail_visited_positions(movements, 9)
     }
   end
 end
