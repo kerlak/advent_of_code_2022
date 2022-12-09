@@ -2,6 +2,7 @@ defmodule AdventOfCode2022 do
   alias AdventOfCode2022.{
     Calories,
     Cleanup,
+    Forest,
     RockPaperScissors,
     Rucksacks,
     Shell,
@@ -62,6 +63,15 @@ defmodule AdventOfCode2022 do
     %{
       part_01: Shell.get_folders_size(commands, 100_000),
       part_02: Shell.get_size_to_remove_to_get(commands, 30_000_000)
+    }
+  end
+
+  def day_08 do
+    scan = File.read!("lib/files/day_08/forest.txt")
+
+    %{
+      part_01: Forest.count_visible_trees(scan),
+      part_02: Forest.best_scenic_score(scan)
     }
   end
 end
