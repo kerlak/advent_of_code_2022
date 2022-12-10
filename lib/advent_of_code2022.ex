@@ -2,6 +2,8 @@ defmodule AdventOfCode2022 do
   alias AdventOfCode2022.{
     Calories,
     Cleanup,
+    Cpu,
+    Crt,
     Forest,
     RockPaperScissors,
     Rope,
@@ -82,6 +84,21 @@ defmodule AdventOfCode2022 do
     %{
       part_01: Rope.count_tail_visited_positions(movements, 1),
       part_02: Rope.count_tail_visited_positions(movements, 9)
+    }
+  end
+
+  def day_10 do
+    instructions_str = File.read!("lib/files/day_10/cpu_instructions.txt")
+
+    register_values = Cpu.execute_instructions(instructions_str)
+
+    signal_strengths_sum = [20, 60, 100, 140, 180, 220]
+    |> Enum.map(&Enum.at(register_values, &1 - 1) * &1)
+    |> Enum.sum()
+
+    %{
+      part_01: signal_strengths_sum,
+      part_02: Crt.draw_frame(register_values) <> "\n"
     }
   end
 end
