@@ -1,5 +1,6 @@
 defmodule AdventOfCode2022.Rope do
   @moduledoc false
+  import AdventOfCode2022.Utils, only: [parse_int!: 1]
 
   def count_tail_visited_positions(movements_str, number_of_knots) do
     head = {0, 0}
@@ -70,12 +71,5 @@ defmodule AdventOfCode2022.Rope do
     Enum.map(movements, fn [orientation, times] ->
       List.duplicate(orientation, parse_int!(times))
     end)
-  end
-
-  defp parse_int!(value) do
-    case Integer.parse(value) do
-      {value, ""} -> value
-      error -> raise(error)
-    end
   end
 end

@@ -1,5 +1,5 @@
 defmodule AdventOfCode2022.CleanupTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias AdventOfCode2022.Cleanup
 
   test "get fully recleanings" do

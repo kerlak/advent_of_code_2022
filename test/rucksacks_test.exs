@@ -1,5 +1,5 @@
 defmodule AdventOfCode2022.RucksacksTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias AdventOfCode2022.Rucksacks
 
   test "get sum of priorities" do

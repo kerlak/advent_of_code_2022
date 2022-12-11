@@ -9,8 +9,9 @@ defmodule AdventOfCode2022 do
     Rope,
     Rucksacks,
     Shell,
+    SimianShenanigan,
     SupplyStacks,
-    Walkie,
+    Walkie
   }
 
   @moduledoc false
@@ -92,13 +93,39 @@ defmodule AdventOfCode2022 do
 
     register_values = Cpu.execute_instructions(instructions_str)
 
-    signal_strengths_sum = [20, 60, 100, 140, 180, 220]
-    |> Enum.map(&Enum.at(register_values, &1 - 1) * &1)
-    |> Enum.sum()
+    signal_strengths_sum =
+      [20, 60, 100, 140, 180, 220]
+      |> Enum.map(&(Enum.at(register_values, &1 - 1) * &1))
+      |> Enum.sum()
 
     %{
       part_01: signal_strengths_sum,
       part_02: Crt.draw_frame(register_values) <> "\n"
+    }
+  end
+
+  def day_11 do
+    monkeys_notes = File.read!("lib/files/day_11/monkeys_notes.txt")
+
+    monkey_business_level =
+      monkeys_notes
+      |> SimianShenanigan.play(:simple, 20)
+      |> Enum.map(& &1.inspections)
+      |> Enum.sort(:desc)
+      |> Enum.take(2)
+      |> Enum.reduce(&(&1 * &2))
+
+    monkey_complex_business_level =
+      monkeys_notes
+      |> SimianShenanigan.play(:complex, 10_000)
+      |> Enum.map(& &1.inspections)
+      |> Enum.sort(:desc)
+      |> Enum.take(2)
+      |> Enum.reduce(&(&1 * &2))
+
+    %{
+      part_01: monkey_business_level,
+      part_02: monkey_complex_business_level
     }
   end
 end

@@ -1,5 +1,5 @@
 defmodule AdventOfCode2022.CaloriesTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias AdventOfCode2022.Calories
 
   test "count max calories" do

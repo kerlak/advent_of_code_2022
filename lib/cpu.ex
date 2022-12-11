@@ -1,17 +1,21 @@
 defmodule AdventOfCode2022.Cpu do
   @moduledoc false
+  import AdventOfCode2022.Utils, only: [parse_int!: 1]
 
   @x 1
 
   def execute_instructions(instructions_str) do
-    instructions = instructions_str
-    |> String.split("\n", trim: true)
+    instructions =
+      instructions_str
+      |> String.split("\n", trim: true)
 
-    Enum.reduce(instructions, [@x], fn(instruction, values) ->
+    Enum.reduce(instructions, [@x], fn instruction, values ->
       reg = List.last(values)
-      result = instruction
-      |> String.split(" ")
-      |> execute_instruction(reg)
+
+      result =
+        instruction
+        |> String.split(" ")
+        |> execute_instruction(reg)
 
       values ++ List.wrap(result)
     end)
@@ -19,11 +23,4 @@ defmodule AdventOfCode2022.Cpu do
 
   defp execute_instruction(["noop"], reg), do: reg
   defp execute_instruction(["addx", value], reg), do: [reg, parse_int!(value) + reg]
-
-  defp parse_int!(value) do
-    case Integer.parse(value) do
-      {value, ""} -> value
-      error -> raise(error)
-    end
-  end
 end

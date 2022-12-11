@@ -1,5 +1,6 @@
 defmodule AdventOfCode2022.Cleanup do
   @moduledoc false
+  import AdventOfCode2022.Utils, only: [parse_int!: 1]
 
   def get_fully_recleanings(cleanup_pairs_file_path) do
     cleanup_pairs_file_path
@@ -34,13 +35,6 @@ defmodule AdventOfCode2022.Cleanup do
       |> Enum.map(&parse_int!(&1))
 
     Enum.to_list(from..to)
-  end
-
-  defp parse_int!(value) do
-    case Integer.parse(value) do
-      {value, ""} -> value
-      error -> raise(error)
-    end
   end
 
   defp has_recleaning([sections_a, sections_b]) do

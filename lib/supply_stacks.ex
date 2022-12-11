@@ -1,5 +1,6 @@
 defmodule AdventOfCode2022.SupplyStacks do
   @moduledoc false
+  import AdventOfCode2022.Utils, only: [parse_int!: 1]
 
   def last_crane(stack_file_path) do
     [str_stack, str_movements] =
@@ -101,12 +102,5 @@ defmodule AdventOfCode2022.SupplyStacks do
     |> List.flatten()
     |> Enum.map(&parse_int!(&1))
     |> then(&move_9001(stack, &1))
-  end
-
-  defp parse_int!(value) do
-    case Integer.parse(value) do
-      {value, ""} -> value
-      error -> raise(error)
-    end
   end
 end

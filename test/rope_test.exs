@@ -1,5 +1,5 @@
 defmodule AdventOfCode2022.RopeTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias AdventOfCode2022.Rope
 
   @rope_file_path "lib/files/day_09/rope_movements_test.txt"

@@ -1,5 +1,5 @@
 defmodule AdventOfCode2022.RockPaperScissorsTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias AdventOfCode2022.RockPaperScissors
 
   test "get example score" do

@@ -1,5 +1,6 @@
 defmodule AdventOfCode2022.Forest do
   @moduledoc false
+  import AdventOfCode2022.Utils, only: [parse_int!: 1]
 
   def count_visible_trees(scan) do
     forest =
@@ -114,12 +115,5 @@ defmodule AdventOfCode2022.Forest do
     {_, right} = Enum.split(row, position + 1)
     value = Enum.at(row, position)
     Enum.all?(left, &(&1 < value)) or Enum.all?(right, &(&1 < value))
-  end
-
-  defp parse_int!(value) do
-    case Integer.parse(value) do
-      {value, ""} -> value
-      error -> raise(error)
-    end
   end
 end

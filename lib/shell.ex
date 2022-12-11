@@ -1,5 +1,6 @@
 defmodule AdventOfCode2022.Shell do
   @moduledoc false
+  import AdventOfCode2022.Utils, only: [parse_int!: 1]
 
   @total_size 70_000_000
 
@@ -100,11 +101,4 @@ defmodule AdventOfCode2022.Shell do
 
   def folder?(%{}), do: true
   def folder?(_), do: false
-
-  defp parse_int!(value) do
-    case Integer.parse(value) do
-      {value, ""} -> value
-      error -> raise(error)
-    end
-  end
 end

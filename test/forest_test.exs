@@ -1,5 +1,5 @@
 defmodule AdventOfCode2022.ForestTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias AdventOfCode2022.Forest
 
   @forest_file_path "lib/files/day_08/forest_test.txt"

@@ -1,5 +1,5 @@
 defmodule AdventOfCode2022.ShellTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias AdventOfCode2022.Shell
 
   @commands_file_path "lib/files/day_07/commands_test.txt"
