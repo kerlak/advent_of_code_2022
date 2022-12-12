@@ -5,6 +5,7 @@ defmodule AdventOfCode2022 do
     Cpu,
     Crt,
     Forest,
+    Pathfinder,
     RockPaperScissors,
     Rope,
     Rucksacks,
@@ -126,6 +127,28 @@ defmodule AdventOfCode2022 do
     %{
       part_01: monkey_business_level,
       part_02: monkey_complex_business_level
+    }
+  end
+
+  def day_12 do
+    {map_01, start_positions_01, end_position_01} =
+      "lib/files/day_12/map.txt"
+      |> File.read!()
+      |> Pathfinder.get_matrix()
+
+    costs_part_01 = Pathfinder.a_star(map_01, start_positions_01)
+
+    {map_02, start_positions_02, end_position_02} =
+      "lib/files/day_12/map.txt"
+      |> File.read!()
+      |> String.replace("a", "S")
+      |> Pathfinder.get_matrix()
+
+    costs_part_02 = Pathfinder.a_star(map_02, start_positions_02)
+
+    %{
+      part_01: Pathfinder.get(costs_part_01, end_position_01),
+      part_02: Pathfinder.get(costs_part_02, end_position_02)
     }
   end
 end
